@@ -49,7 +49,8 @@ namespace Melisa_Akdagg
             {
                 cmbKitaplar.Items.Add(dr2[1].ToString());
             }
-            baglanti.Close();
+            baglanti.Close()
+                //asdasdasds
         }
     }
 }
