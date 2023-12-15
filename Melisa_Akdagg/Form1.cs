@@ -58,10 +58,10 @@ namespace Melisa_Akdagg
         private void btnEkleme_Click(object sender, EventArgs e)
         {
 
-            //baglanti.Open();
             //SqlCommand count = new SqlCommand("select count(*) from kullanicilar");
             //int Sayi = count.ExecuteNonQuery();
 
+            baglanti.Open();
             SqlCommand komut = new SqlCommand("insert into Kullanicilar values" +
                 "(@p1,@p2,@p3,@p4,@p5,@p6,@p7)", baglanti);
             komut.Parameters.AddWithValue("@p2", txtAdi.Text);

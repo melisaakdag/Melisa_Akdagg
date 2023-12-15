@@ -31,6 +31,7 @@
             this.btnKullanicilar = new System.Windows.Forms.Button();
             this.lblYazarlar = new System.Windows.Forms.Button();
             this.btnOduncler = new System.Windows.Forms.Button();
+            this.btnCeza = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnKullanicilar
@@ -49,7 +50,7 @@
             this.lblYazarlar.Name = "lblYazarlar";
             this.lblYazarlar.Size = new System.Drawing.Size(153, 75);
             this.lblYazarlar.TabIndex = 1;
-            this.lblYazarlar.Text = "Kullanicilar";
+            this.lblYazarlar.Text = "Yazarlar";
             this.lblYazarlar.UseVisualStyleBackColor = true;
             this.lblYazarlar.Click += new System.EventHandler(this.lblYazarlar_Click);
             // 
@@ -63,11 +64,22 @@
             this.btnOduncler.UseVisualStyleBackColor = true;
             this.btnOduncler.Click += new System.EventHandler(this.btnOduncler_Click);
             // 
+            // btnCeza
+            // 
+            this.btnCeza.Location = new System.Drawing.Point(196, 145);
+            this.btnCeza.Name = "btnCeza";
+            this.btnCeza.Size = new System.Drawing.Size(153, 75);
+            this.btnCeza.TabIndex = 3;
+            this.btnCeza.Text = "Cezalar";
+            this.btnCeza.UseVisualStyleBackColor = true;
+            this.btnCeza.Click += new System.EventHandler(this.btnCeza_Click);
+            // 
             // Anasayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 450);
+            this.Controls.Add(this.btnCeza);
             this.Controls.Add(this.btnOduncler);
             this.Controls.Add(this.lblYazarlar);
             this.Controls.Add(this.btnKullanicilar);
@@ -82,5 +94,6 @@
         private System.Windows.Forms.Button btnKullanicilar;
         private System.Windows.Forms.Button lblYazarlar;
         private System.Windows.Forms.Button btnOduncler;
+        private System.Windows.Forms.Button btnCeza;
     }
 }
