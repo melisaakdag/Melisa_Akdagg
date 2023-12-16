@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.btnKullanicilar = new System.Windows.Forms.Button();
-            this.lblYazarlar = new System.Windows.Forms.Button();
             this.btnOduncler = new System.Windows.Forms.Button();
             this.btnCeza = new System.Windows.Forms.Button();
+            this.btnKategori = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnKullanicilar
@@ -44,19 +46,9 @@
             this.btnKullanicilar.UseVisualStyleBackColor = true;
             this.btnKullanicilar.Click += new System.EventHandler(this.btnKullanicilar_Click);
             // 
-            // lblYazarlar
-            // 
-            this.lblYazarlar.Location = new System.Drawing.Point(196, 29);
-            this.lblYazarlar.Name = "lblYazarlar";
-            this.lblYazarlar.Size = new System.Drawing.Size(153, 75);
-            this.lblYazarlar.TabIndex = 1;
-            this.lblYazarlar.Text = "Yazarlar";
-            this.lblYazarlar.UseVisualStyleBackColor = true;
-            this.lblYazarlar.Click += new System.EventHandler(this.lblYazarlar_Click);
-            // 
             // btnOduncler
             // 
-            this.btnOduncler.Location = new System.Drawing.Point(12, 145);
+            this.btnOduncler.Location = new System.Drawing.Point(196, 29);
             this.btnOduncler.Name = "btnOduncler";
             this.btnOduncler.Size = new System.Drawing.Size(153, 75);
             this.btnOduncler.TabIndex = 2;
@@ -66,7 +58,7 @@
             // 
             // btnCeza
             // 
-            this.btnCeza.Location = new System.Drawing.Point(196, 145);
+            this.btnCeza.Location = new System.Drawing.Point(12, 129);
             this.btnCeza.Name = "btnCeza";
             this.btnCeza.Size = new System.Drawing.Size(153, 75);
             this.btnCeza.TabIndex = 3;
@@ -74,14 +66,45 @@
             this.btnCeza.UseVisualStyleBackColor = true;
             this.btnCeza.Click += new System.EventHandler(this.btnCeza_Click);
             // 
+            // btnKategori
+            // 
+            this.btnKategori.Location = new System.Drawing.Point(12, 229);
+            this.btnKategori.Name = "btnKategori";
+            this.btnKategori.Size = new System.Drawing.Size(153, 75);
+            this.btnKategori.TabIndex = 4;
+            this.btnKategori.Text = "Kategoriler";
+            this.btnKategori.UseVisualStyleBackColor = true;
+            this.btnKategori.Click += new System.EventHandler(this.btnKategori_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(196, 129);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 75);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Kitaplar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(196, 229);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(153, 75);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Yazarlar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Anasayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 450);
+            this.ClientSize = new System.Drawing.Size(363, 390);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnKategori);
             this.Controls.Add(this.btnCeza);
             this.Controls.Add(this.btnOduncler);
-            this.Controls.Add(this.lblYazarlar);
             this.Controls.Add(this.btnKullanicilar);
             this.Name = "Anasayfa";
             this.Text = "Anasayfa";
@@ -92,8 +115,10 @@
         #endregion
 
         private System.Windows.Forms.Button btnKullanicilar;
-        private System.Windows.Forms.Button lblYazarlar;
         private System.Windows.Forms.Button btnOduncler;
         private System.Windows.Forms.Button btnCeza;
+        private System.Windows.Forms.Button btnKategori;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

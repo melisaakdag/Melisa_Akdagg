@@ -40,5 +40,17 @@ namespace Melisa_Akdagg
             FrmCezalar frmCezalar=new FrmCezalar();
             frmCezalar.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmYazarlar frmYazarlar = new FrmYazarlar();
+            frmYazarlar.ShowDialog();
+        }
+
+        private void btnKategori_Click(object sender, EventArgs e)
+        {
+            FrmKategoriler frmKategoriler=new FrmKategoriler();
+            frmKategoriler.ShowDialog();
+        }
     }
 }

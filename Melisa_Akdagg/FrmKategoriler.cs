@@ -11,18 +11,15 @@ using System.Windows.Forms;
 
 namespace Melisa_Akdagg
 {
-    public partial class FrmYazarlar : Form
+    public partial class FrmKategoriler : Form
     {
-        public FrmYazarlar()
+        public FrmKategoriler()
         {
             InitializeComponent();
         }
         SqlConnection baglanti = new SqlConnection(@"Data Source=DESKTOP-OGSV1AA\MSSQLSERVER01;Initial Catalog=KutuphaneMelisaDB;Integrated Security=True;MultipleActiveResultSets=True");
         DataTable tablo = new DataTable();
-       
-    
-
-        private void FrmYazarlar_Load(object sender, EventArgs e)
+        private void FrmKategoriler_Load(object sender, EventArgs e)
         {
             Goster();
         }
@@ -31,7 +28,7 @@ namespace Melisa_Akdagg
         {
             tablo.Clear();
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("select * from yazarlar", baglanti);
+            SqlCommand komut = new SqlCommand("select * from Kategoriler", baglanti);
             SqlDataAdapter da = new SqlDataAdapter(komut);
             da.Fill(tablo);
             dataGridView1.DataSource = tablo;
@@ -41,10 +38,9 @@ namespace Melisa_Akdagg
         private void btnEkleme_Click(object sender, EventArgs e)
         {
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("insert into yazarlar values" +
-                "(@p1,@p2,@p3)", baglanti);
-            komut.Parameters.AddWithValue("@p2", txtAdi.Text);
-            komut.Parameters.AddWithValue("@p3", txtSoyadi.Text);
+            SqlCommand komut = new SqlCommand("insert into kategoriler values" +
+                "(@p1,@p2)", baglanti);
+            komut.Parameters.AddWithValue("@p2", txtKategori.Text);
             komut.Parameters.AddWithValue("@p1", 4); // ID
 
             komut.ExecuteNonQuery();
@@ -54,12 +50,9 @@ namespace Melisa_Akdagg
             Goster();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnGoster_Click(object sender, EventArgs e)
         {
-            int secilen = dataGridView1.SelectedCells[0].RowIndex;
-            txtID.Text = dataGridView1.Rows[secilen].Cells[0].Value.ToString();
-            txtAdi.Text = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
-            txtSoyadi.Text = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
+            Goster();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -69,7 +62,7 @@ namespace Melisa_Akdagg
             baglanti.Open();
             if (secenek == DialogResult.Yes)
             {
-                SqlCommand sil = new SqlCommand("delete from yazarlar where yazarID=@p1", baglanti);
+                SqlCommand sil = new SqlCommand("delete from kategoriler where kategoriID=@p1", baglanti);
                 sil.Parameters.AddWithValue("@p1", txtID.Text);
                 sil.ExecuteNonQuery();
                 baglanti.Close();
@@ -85,37 +78,33 @@ namespace Melisa_Akdagg
             Goster();
         }
 
-        private void txtArama_TextChanged(object sender, EventArgs e)
-        {
-            tablo.Clear();
-            baglanti.Open();
-            SqlDataAdapter adtr = new SqlDataAdapter("select * from yazarlar where yazarAdi like '" + txtArama.Text + "%'", baglanti);
-            adtr.Fill(tablo);
-            dataGridView1.DataSource = tablo;
-            baglanti.Close();
-        }
-
-        private void txtArama_TextChanged_1(object sender, EventArgs e)
-        {
-            tablo.Clear();
-            baglanti.Open();
-            SqlDataAdapter adtr = new SqlDataAdapter("select * from yazarlar where YazarAdi like '" + txtArama.Text + "%'", baglanti);
-            adtr.Fill(tablo);
-            dataGridView1.DataSource = tablo;
-            baglanti.Close();
-        }
-
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("update  yazarlar set yazarAdi=@p2 ,yazarSoyadi=@p3 where YazarID=@p1", baglanti);
-            komut.Parameters.AddWithValue("@p2", txtAdi.Text.ToString());
-            komut.Parameters.AddWithValue("@p3", txtSoyadi.Text.ToString());
+            SqlCommand komut = new SqlCommand("update  kategoriler set kategoriAdı=@p2 where KategoriID=@p1", baglanti);
+            komut.Parameters.AddWithValue("@p2", txtKategori.Text.ToString());
             komut.Parameters.AddWithValue("@p1", txtID.Text.ToString());
             komut.ExecuteNonQuery();
             baglanti.Close();
             MessageBox.Show("Güncelleme başarılı");
             Goster();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            txtID.Text = dataGridView1.Rows[secilen].Cells[0].Value.ToString();
+            txtKategori.Text = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
+        }
+
+        private void txtArama_TextChanged(object sender, EventArgs e)
+        {
+            tablo.Clear();
+            baglanti.Open();
+            SqlDataAdapter adtr = new SqlDataAdapter("select * from kategoriler where kategoriAdı like '" + txtArama.Text + "%'", baglanti);
+            adtr.Fill(tablo);
+            dataGridView1.DataSource = tablo;
+            baglanti.Close();
         }
     }
 }
